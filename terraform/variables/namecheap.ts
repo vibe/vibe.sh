@@ -57,13 +57,12 @@ export class NamecheapEnv extends Resource {
       description: 'IP required for namecheap provider'
     });
 
-
     this.config = {
-      username: username.value,
-      apiUser: apiUser.value,
-      token: apiToken.value,
-      ip: ip.value,
-      useSandbox: true,
+      username: username.stringValue,
+      apiUser: apiUser.stringValue,
+      token: apiToken.stringValue,
+      ip: ip.stringValue,
+      useSandbox: false,
     }
 
 

@@ -34,6 +34,7 @@ export class Domain extends Resource {
   protected dnsProvider: CloudflareProvider | TerraformProvider;
 
   protected dnsZone: Zone;
+  protected nameservers: Ns;
   protected records: any[];
 
   public get config() {
@@ -50,6 +51,7 @@ export class Domain extends Resource {
     this.dnsProvider = this.resolveDNSProvider(this.config.dnsProvider)
 
     this.dnsZone = this.resolveDNSZone(this.config.dnsProvider)
+    this.nameservers = this.resolveNameservers(this.config.registrar)
     this.records = this.resolveRecords(this.config.dnsProvider, this.config.records)
 
 
