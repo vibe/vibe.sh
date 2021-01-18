@@ -1,0 +1,9 @@
+{
+  "name": "www",
+  "private": true,
+  "dependencies": {
+    "esbuild": "^0.8.33",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
