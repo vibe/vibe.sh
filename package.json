@@ -1,7 +1,13 @@
 {
   "name": "vibe.sh",
   "private": true,
+  "scripts": {
+    "cdktf": "cdktf"
+  },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "cdktf-cli": "next"
+  }
 }
