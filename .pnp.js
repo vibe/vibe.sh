@@ -21,11 +21,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "vibe.sh",
         "reference": "workspace:."
+      },
+      {
+        "name": "terraform",
+        "reference": "workspace:terraform"
       }
     ],
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
+      ["terraform", ["workspace:terraform"]],
       ["vibe.sh", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -37,6 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@types/node", "npm:14.14.21"],
             ["cdktf-cli", "npm:0.1.0-pre.163"]
           ],
           "linkType": "SOFT",
@@ -2615,6 +2621,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["terraform", [
+        ["workspace:terraform", {
+          "packageLocation": "./terraform/",
+          "packageDependencies": [
+            ["terraform", "workspace:terraform"],
+            ["@types/node", "npm:14.14.21"],
+            ["cdktf", "virtual:343fb5a7677d4a2863caa81b2638563e318c850e077422a6aa8ef7e4e96060706d7cba1aa85e3a1c4703b303106593c8f569b373161e510558e2489af7241d14#npm:0.1.0-pre.163"],
+            ["cdktf-cli", "npm:0.1.0-pre.163"],
+            ["constructs", "npm:3.2.106"],
+            ["typescript", "patch:typescript@npm%3A4.1.3#builtin<compat/typescript>::version=4.1.3&hash=cc6730"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["type-fest", [
         ["npm:0.11.0", {
           "packageLocation": "./.yarn/cache/type-fest-npm-0.11.0-81410fe889-02e5cadf13.zip/node_modules/type-fest/",
@@ -2629,6 +2649,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/typescript-patch-2adb05d63d-f0d3d9c987.zip/node_modules/typescript/",
           "packageDependencies": [
             ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=cc6730"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["patch:typescript@npm%3A4.1.3#builtin<compat/typescript>::version=4.1.3&hash=cc6730", {
+          "packageLocation": "./.yarn/cache/typescript-patch-7a9e6321b3-017af99214.zip/node_modules/typescript/",
+          "packageDependencies": [
+            ["typescript", "patch:typescript@npm%3A4.1.3#builtin<compat/typescript>::version=4.1.3&hash=cc6730"]
           ],
           "linkType": "HARD",
         }]
@@ -2679,6 +2706,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["vibe.sh", "workspace:."],
+            ["@types/node", "npm:14.14.21"],
             ["cdktf-cli", "npm:0.1.0-pre.163"]
           ],
           "linkType": "SOFT",

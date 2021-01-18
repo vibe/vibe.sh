@@ -2,12 +2,14 @@
   "name": "vibe.sh",
   "private": true,
   "scripts": {
-    "cdktf": "cdktf"
+    "cdk": "cdktf"
   },
   "workspaces": [
+    "terraform",
     "packages/*"
   ],
   "dependencies": {
+    "@types/node": "^14.14.21",
     "cdktf-cli": "next"
   }
 }
