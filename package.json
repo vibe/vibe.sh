@@ -5,7 +5,7 @@
     "cdk": "cdktf"
   },
   "workspaces": [
-    "terraform",
+    "terraform/*",
     "packages/*"
   ],
   "dependencies": {

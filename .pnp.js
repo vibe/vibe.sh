@@ -23,14 +23,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."
       },
       {
-        "name": "terraform",
-        "reference": "workspace:terraform"
+        "name": "gcp-vibe.sh",
+        "reference": "workspace:terraform/gcp"
+      },
+      {
+        "name": "terraform-vibe.sh",
+        "reference": "workspace:terraform/vibe.sh"
       }
     ],
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
-      ["terraform", ["workspace:terraform"]],
+      ["gcp-vibe.sh", ["workspace:terraform/gcp"]],
+      ["terraform-vibe.sh", ["workspace:terraform/vibe.sh"]],
       ["vibe.sh", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -1130,6 +1135,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["function-bind", "npm:1.1.1"]
           ],
           "linkType": "HARD",
+        }]
+      ]],
+      ["gcp-vibe.sh", [
+        ["workspace:terraform/gcp", {
+          "packageLocation": "./terraform/gcp/",
+          "packageDependencies": [
+            ["gcp-vibe.sh", "workspace:terraform/gcp"],
+            ["@types/node", "npm:14.14.21"],
+            ["cdktf", "virtual:343fb5a7677d4a2863caa81b2638563e318c850e077422a6aa8ef7e4e96060706d7cba1aa85e3a1c4703b303106593c8f569b373161e510558e2489af7241d14#npm:0.1.0-pre.163"],
+            ["cdktf-cli", "npm:0.1.0-pre.163"],
+            ["constructs", "npm:3.2.106"],
+            ["typescript", "patch:typescript@npm%3A4.1.3#builtin<compat/typescript>::version=4.1.3&hash=cc6730"]
+          ],
+          "linkType": "SOFT",
         }]
       ]],
       ["get-caller-file", [
@@ -2621,11 +2640,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["terraform", [
-        ["workspace:terraform", {
-          "packageLocation": "./terraform/",
+      ["terraform-vibe.sh", [
+        ["workspace:terraform/vibe.sh", {
+          "packageLocation": "./terraform/vibe.sh/",
           "packageDependencies": [
-            ["terraform", "workspace:terraform"],
+            ["terraform-vibe.sh", "workspace:terraform/vibe.sh"],
             ["@types/node", "npm:14.14.21"],
             ["cdktf", "virtual:343fb5a7677d4a2863caa81b2638563e318c850e077422a6aa8ef7e4e96060706d7cba1aa85e3a1c4703b303106593c8f569b373161e510558e2489af7241d14#npm:0.1.0-pre.163"],
             ["cdktf-cli", "npm:0.1.0-pre.163"],
