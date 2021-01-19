@@ -1,0 +1,16 @@
+{
+  "language": "typescript",
+  "app": "npm run --silent compile && node main.js",
+  "terraformProviders": [
+    "aws@~> 2.0",
+    "google@~> 3.52",
+    "terraform-providers/docker@~> 2.0",
+    "github.com/adamdecaf/namecheap@~> 1.5",
+    "terraform-providers/cloudflare@~> 2.17",
+    "DeviaVir/gsuite@~> 0.1.56"
+  ],
+  "context": {
+    "excludeStackIdFromLogicalIds": "true",
+    "allowSepCharsInLogicalIds": "true"
+  }
+}
